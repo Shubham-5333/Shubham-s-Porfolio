@@ -70,7 +70,7 @@ const Navbar = () => {
             {link.name}
           </a>
         ))}
-        <a href="/resume.pdf" download="Resume.pdf" className="btn btn-primary" style={{ padding: '0.5rem 1.2rem', fontSize: '0.9rem' }}>
+        <a href="/Shubhams---Resume.pdf" download="Shubhams---Resume.pdf" className="btn btn-primary" style={{ padding: '0.5rem 1.2rem', fontSize: '0.9rem' }}>
           <Download size={16} /> Resume
         </a>
       </div>
