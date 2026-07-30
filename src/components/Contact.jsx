@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
-// import './Contact.css';
 
 const Contact = () => {
 
@@ -48,7 +47,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="section">
+    <section id="contact" className="section bg-starfield">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -56,16 +55,18 @@ const Contact = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="section-title" style={{ textAlign: 'center' }}>
-            Get In Touch
+          <span style={{ color: '#4d7c0f', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.85rem', display: 'block', textAlign: 'center' }}>
+            GET IN TOUCH
+          </span>
+          <h2 className="section-title" style={{ textAlign: 'center', marginTop: '0.3rem' }}>
+            LET'S <span className="text-gradient">CONNECT</span>
           </h2>
 
           <p
             className="section-subtitle"
             style={{ textAlign: 'center', margin: '0 auto 4rem auto' }}
           >
-            Although I'm currently looking for new opportunities, my inbox is always open.
-            Whether you have a question or just want to say hi, I'll try my best to get back to you!
+            Whether you have a project in mind, a question, or just want to connect, feel free to reach out!
           </p>
 
           <div
@@ -81,12 +82,14 @@ const Contact = () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
               <h3
                 style={{
-                  fontSize: '1.5rem',
-                  fontWeight: 600,
-                  marginBottom: '1rem'
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '1.8rem',
+                  letterSpacing: '1px',
+                  color: 'var(--text-primary)',
+                  marginBottom: '0.5rem'
                 }}
               >
-                Contact Information
+                CONTACT INFORMATION
               </h3>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
@@ -95,11 +98,11 @@ const Contact = () => {
                     width: '50px',
                     height: '50px',
                     borderRadius: '50%',
-                    background: 'rgba(59, 130, 246, 0.1)',
+                    background: 'rgba(132, 204, 22, 0.15)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: 'var(--accent-color)'
+                    color: '#4d7c0f'
                   }}
                 >
                   <Mail size={24} />
@@ -108,17 +111,19 @@ const Contact = () => {
                 <div>
                   <p
                     style={{
-                      color: 'var(--text-secondary)',
-                      fontSize: '0.9rem',
-                      marginBottom: '0.25rem'
+                      color: 'var(--text-muted)',
+                      fontSize: '0.8rem',
+                      textTransform: 'uppercase',
+                      fontWeight: 700,
+                      marginBottom: '0.2rem'
                     }}
                   >
                     Email
                   </p>
 
-                  <p style={{ fontWeight: 500 }}>
+                  <a href="mailto:shubhampatil5333@gmail.com" style={{ fontWeight: 700, color: 'var(--text-primary)', textDecoration: 'none' }}>
                     shubhampatil5333@gmail.com
-                  </p>
+                  </a>
                 </div>
               </div>
 
@@ -128,11 +133,11 @@ const Contact = () => {
                     width: '50px',
                     height: '50px',
                     borderRadius: '50%',
-                    background: 'rgba(59, 130, 246, 0.1)',
+                    background: 'rgba(132, 204, 22, 0.15)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: 'var(--accent-color)'
+                    color: '#4d7c0f'
                   }}
                 >
                   <Phone size={24} />
@@ -141,17 +146,19 @@ const Contact = () => {
                 <div>
                   <p
                     style={{
-                      color: 'var(--text-secondary)',
-                      fontSize: '0.9rem',
-                      marginBottom: '0.25rem'
+                      color: 'var(--text-muted)',
+                      fontSize: '0.8rem',
+                      textTransform: 'uppercase',
+                      fontWeight: 700,
+                      marginBottom: '0.2rem'
                     }}
                   >
                     Phone
                   </p>
 
-                  <p style={{ fontWeight: 500 }}>
+                  <a href="tel:+917558826132" style={{ fontWeight: 700, color: 'var(--text-primary)', textDecoration: 'none' }}>
                     +91 7558 8261 32
-                  </p>
+                  </a>
                 </div>
               </div>
 
@@ -161,11 +168,11 @@ const Contact = () => {
                     width: '50px',
                     height: '50px',
                     borderRadius: '50%',
-                    background: 'rgba(59, 130, 246, 0.1)',
+                    background: 'rgba(132, 204, 22, 0.15)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: 'var(--accent-color)'
+                    color: '#4d7c0f'
                   }}
                 >
                   <MapPin size={24} />
@@ -174,16 +181,18 @@ const Contact = () => {
                 <div>
                   <p
                     style={{
-                      color: 'var(--text-secondary)',
-                      fontSize: '0.9rem',
-                      marginBottom: '0.25rem'
+                      color: 'var(--text-muted)',
+                      fontSize: '0.8rem',
+                      textTransform: 'uppercase',
+                      fontWeight: 700,
+                      marginBottom: '0.2rem'
                     }}
                   >
                     Location
                   </p>
 
-                  <p style={{ fontWeight: 500 }}>
-                    India, Kozhikode, Kerala
+                  <p style={{ fontWeight: 700, color: 'var(--text-primary)' }}>
+                    Kozhikode, Kerala, India
                   </p>
                 </div>
               </div>
@@ -194,10 +203,14 @@ const Contact = () => {
               id="contactForm"
               onSubmit={handleSubmit}
               style={{
-                padding: '2rem',
+                padding: '2.5rem',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '1.5rem'
+                gap: '1.5rem',
+                background: '#ffffff',
+                border: '1px solid rgba(15, 23, 42, 0.1)',
+                boxShadow: '0 10px 30px rgba(15, 23, 42, 0.05)',
+                borderRadius: '20px'
               }}
             >
 
@@ -206,11 +219,12 @@ const Contact = () => {
                   style={{
                     display: 'block',
                     marginBottom: '0.5rem',
-                    color: 'var(--text-secondary)',
-                    fontSize: '0.9rem'
+                    color: 'var(--text-primary)',
+                    fontSize: '0.9rem',
+                    fontWeight: 600
                   }}
                 >
-                  Name
+                  Your Name
                 </label>
 
                 <input
@@ -223,15 +237,17 @@ const Contact = () => {
                   style={{
                     width: '100%',
                     padding: '1rem',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid var(--glass-border)',
-                    borderRadius: '8px',
-                    color: 'white',
+                    background: '#f8fafc',
+                    border: '1px solid rgba(15, 23, 42, 0.15)',
+                    borderRadius: '10px',
+                    color: '#0f172a',
                     fontFamily: 'inherit',
-                    outline: 'none'
+                    fontSize: '1rem',
+                    outline: 'none',
+                    transition: 'all 0.2s ease'
                   }}
-                  onFocus={e => e.target.style.borderColor = 'var(--accent-color)'}
-                  onBlur={e => e.target.style.borderColor = 'var(--glass-border)'}
+                  onFocus={e => { e.target.style.borderColor = '#0f172a'; e.target.style.background = '#ffffff'; }}
+                  onBlur={e => { e.target.style.borderColor = 'rgba(15, 23, 42, 0.15)'; e.target.style.background = '#f8fafc'; }}
                 />
               </div>
 
@@ -240,11 +256,12 @@ const Contact = () => {
                   style={{
                     display: 'block',
                     marginBottom: '0.5rem',
-                    color: 'var(--text-secondary)',
-                    fontSize: '0.9rem'
+                    color: 'var(--text-primary)',
+                    fontSize: '0.9rem',
+                    fontWeight: 600
                   }}
                 >
-                  Email
+                  Your Email
                 </label>
 
                 <input
@@ -257,15 +274,17 @@ const Contact = () => {
                   style={{
                     width: '100%',
                     padding: '1rem',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid var(--glass-border)',
-                    borderRadius: '8px',
-                    color: 'white',
+                    background: '#f8fafc',
+                    border: '1px solid rgba(15, 23, 42, 0.15)',
+                    borderRadius: '10px',
+                    color: '#0f172a',
                     fontFamily: 'inherit',
-                    outline: 'none'
+                    fontSize: '1rem',
+                    outline: 'none',
+                    transition: 'all 0.2s ease'
                   }}
-                  onFocus={e => e.target.style.borderColor = 'var(--accent-color)'}
-                  onBlur={e => e.target.style.borderColor = 'var(--glass-border)'}
+                  onFocus={e => { e.target.style.borderColor = '#0f172a'; e.target.style.background = '#ffffff'; }}
+                  onBlur={e => { e.target.style.borderColor = 'rgba(15, 23, 42, 0.15)'; e.target.style.background = '#f8fafc'; }}
                 />
               </div>
 
@@ -274,16 +293,17 @@ const Contact = () => {
                   style={{
                     display: 'block',
                     marginBottom: '0.5rem',
-                    color: 'var(--text-secondary)',
-                    fontSize: '0.9rem'
+                    color: 'var(--text-primary)',
+                    fontSize: '0.9rem',
+                    fontWeight: 600
                   }}
                 >
-                  Message
+                  Your Message
                 </label>
 
                 <textarea
                   name="message"
-                  placeholder="Your message here..."
+                  placeholder="Write your message here..."
                   rows="4"
                   value={formData.message}
                   onChange={handleChange}
@@ -291,23 +311,25 @@ const Contact = () => {
                   style={{
                     width: '100%',
                     padding: '1rem',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid var(--glass-border)',
-                    borderRadius: '8px',
-                    color: 'white',
+                    background: '#f8fafc',
+                    border: '1px solid rgba(15, 23, 42, 0.15)',
+                    borderRadius: '10px',
+                    color: '#0f172a',
                     fontFamily: 'inherit',
+                    fontSize: '1rem',
                     outline: 'none',
-                    resize: 'vertical'
+                    resize: 'vertical',
+                    transition: 'all 0.2s ease'
                   }}
-                  onFocus={e => e.target.style.borderColor = 'var(--accent-color)'}
-                  onBlur={e => e.target.style.borderColor = 'var(--glass-border)'}
+                  onFocus={e => { e.target.style.borderColor = '#0f172a'; e.target.style.background = '#ffffff'; }}
+                  onBlur={e => { e.target.style.borderColor = 'rgba(15, 23, 42, 0.15)'; e.target.style.background = '#f8fafc'; }}
                 />
               </div>
 
               <button
                 type="submit"
                 className="btn btn-primary"
-                style={{ width: '100%', padding: '1rem' }}
+                style={{ width: '100%', padding: '1rem', fontSize: '1.05rem' }}
               >
                 Send Message <Send size={18} />
               </button>

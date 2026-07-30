@@ -12,7 +12,7 @@ const Skills = () => {
     },
     {
       title: 'Tools & Concepts',
-      skills: ["Git", "GitHub", "Postman", "Figma", " REST APIs", "MVC Architecture","JWT", "Deployment"]
+      skills: ["Git", "GitHub", "Postman", "Figma", " REST APIs", "MVC Architecture", "JWT", "Deployment"]
     }
   ];
 
@@ -42,15 +42,15 @@ const Skills = () => {
         >
           <h2 className="section-title">Technical Skills</h2>
           <p className="section-subtitle">A comprehensive list of my technical toolkit.</p>
-          
+
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
             {skillCategories.map((category, idx) => (
               <div key={idx} className="glass-panel" style={{ padding: '2rem' }}>
                 <h3 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '1.5rem', color: 'var(--accent-color)' }}>
                   {category.title}
                 </h3>
-                
-                <motion.div 
+
+                <motion.div
                   variants={containerVariants}
                   initial="hidden"
                   whileInView="visible"
@@ -62,9 +62,9 @@ const Skills = () => {
                       key={index}
                       variants={itemVariants}
                       whileHover={{ scale: 1.05, backgroundColor: 'rgba(59, 130, 246, 0.2)' }}
-                      style={{ 
-                        padding: '0.5rem 1rem', 
-                        backgroundColor: 'var(--glass-bg)', 
+                      style={{
+                        padding: '0.5rem 1rem',
+                        backgroundColor: 'var(--glass-bg)',
                         border: '1px solid var(--glass-border)',
                         borderRadius: '8px',
                         fontSize: '0.9rem',

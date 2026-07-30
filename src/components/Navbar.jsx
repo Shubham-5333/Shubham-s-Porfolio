@@ -1,87 +1,108 @@
 import { motion } from 'framer-motion';
-import { Download } from 'lucide-react';
+import { MessageSquare, FileText } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import profilepic from '../assets/profilepic.jpg';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 30);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
+    { name: 'Home', href: '#hero' },
     { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
+    { name: 'Services', href: '#capabilities' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Skills', href: '#skills' },
     { name: 'Contact', href: '#contact' },
+    { name: 'Resume', href: 'https://drive.google.com/file/d/1NYPyj-0uDNC3fuYersXUFf2-iQ6DQp7q/view?usp=sharing', external: true },
   ];
 
   return (
-    <motion.nav
+    <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       style={{
         position: 'fixed',
-        top: 0,
+        top: '20px',
         left: 0,
         right: 0,
-        height: '80px',
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '0 2rem',
+        justifyContent: 'center',
         zIndex: 100,
-        transition: 'all 0.3s ease',
-        background: scrolled ? 'var(--glass-bg)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        borderBottom: scrolled ? '1px solid var(--glass-border)' : '1px solid transparent',
-        boxShadow: scrolled ? 'var(--glass-shadow)' : 'none'
+        padding: '0 1rem'
       }}
     >
-      <div style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '-0.5px' }}>
-        {/* <span className="text-gradient"></span> */}
-      </div>
-
-      <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-        <div style={{ display: 'flex', gap: '1.5rem', display: 'none' }} className="nav-links">
-          {/* For mobile, we will hide nav-links using CSS, but for desktop they show */}
-        </div>
-        {navLinks.map((link) => (
-          <a
-            key={link.name}
-            href={link.href}
-            style={{
-              color: 'var(--text-primary)',
-              textDecoration: 'none',
-              fontWeight: 500,
-              fontSize: '0.95rem',
-              transition: 'color 0.2s',
-            }}
-            onMouseOver={(e) => (e.currentTarget.style.color = 'var(--accent-color)')}
-            onMouseOut={(e) => (e.currentTarget.style.color = 'var(--text-primary)')}
-            className="desktop-only"
-          >
-            {link.name}
-          </a>
-        ))}
-        <a href="/Shubhams---Resume.pdf" download="Shubhams---Resume.pdf" className="btn btn-primary" style={{ padding: '0.5rem 1.2rem', fontSize: '0.9rem' }}>
-          <Download size={16} /> Resume
+      <nav
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '0.6rem 1.2rem',
+          width: '100%',
+          maxWidth: '900px',
+          background: 'rgba(255, 255, 255, 0.9)',
+          backdropFilter: 'blur(16px)',
+          border: '1px solid rgba(15, 23, 42, 0.1)',
+          borderRadius: '9999px',
+          boxShadow: '0 10px 30px rgba(15, 23, 42, 0.08)',
+          transition: 'all 0.3s ease'
+        }}
+      >
+        {/* Left: Avatar Thumbnail & Brand */}
+        <a href="#hero" style={{ display: 'flex', alignItems: 'center', gap: '0.7rem', textDecoration: 'none' }}>
+          <img
+            src={profilepic}
+            alt="Shubham"
+            style={{ width: '36px', height: '36px', borderRadius: '50%', objectFit: 'cover', border: '2px solid #0f172a' }}
+          />
+          <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', color: '#0f172a', letterSpacing: '1px' }}>
+            SHUBHAM
+          </span>
         </a>
-      </div>
-      
-      {/* We can add a simple style block for responsive nav */}
+
+        {/* Center: Nav Links */}
+        <div style={{ display: 'flex', gap: '1.4rem', alignItems: 'center' }} className="nav-links-container">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noreferrer" : undefined}
+              style={{
+                color: 'var(--text-secondary)',
+                textDecoration: 'none',
+                fontWeight: 600,
+                fontSize: '0.88rem',
+                transition: 'all 0.2s ease',
+              }}
+              onMouseOver={(e) => { e.currentTarget.style.color = '#0f172a'; }}
+              onMouseOut={(e) => { e.currentTarget.style.color = 'var(--text-secondary)'; }}
+              className="nav-link-item"
+            >
+              {link.name}
+            </a>
+          ))}
+        </div>
+
+        {/* Right: Action Button */}
+        <a href="#contact" className="btn btn-primary" style={{ padding: '0.5rem 1.2rem', fontSize: '0.85rem' }}>
+          <MessageSquare size={15} /> Let's Talk
+        </a>
+      </nav>
+
       <style>{`
-        @media (max-width: 768px) {
-          .desktop-only { display: none !important; }
+        @media (max-width: 640px) {
+          .nav-links-container { display: none !important; }
         }
       `}</style>
-    </motion.nav>
+    </motion.header>
   );
 };
 
