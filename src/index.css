@@ -56,8 +56,9 @@ body {
 }
 
 /* Light Background Grid Overlay */
-.bg-starfield, .bg-grid-pattern {
-  background-image: 
+.bg-starfield,
+.bg-grid-pattern {
+  background-image:
     radial-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px),
     radial-gradient(rgba(132, 204, 22, 0.12) 1px, transparent 1px);
   background-size: 36px 36px, 72px 72px;
@@ -136,13 +137,15 @@ body {
   letter-spacing: 0.5px;
 }
 
-.btn-primary, .btn-neon {
+.btn-primary,
+.btn-neon {
   background: #0f172a;
   color: #ffffff;
   box-shadow: 0 10px 25px rgba(15, 23, 42, 0.2);
 }
 
-.btn-primary:hover, .btn-neon:hover {
+.btn-primary:hover,
+.btn-neon:hover {
   background: #84cc16;
   color: #0f172a;
   transform: translateY(-2px);
@@ -192,9 +195,11 @@ body {
   0% {
     box-shadow: 0 0 0 0 rgba(101, 163, 13, 0.7);
   }
+
   70% {
     box-shadow: 0 0 0 8px rgba(101, 163, 13, 0);
   }
+
   100% {
     box-shadow: 0 0 0 0 rgba(101, 163, 13, 0);
   }
@@ -297,7 +302,8 @@ body {
   transition: all var(--transition-normal);
 }
 
-.accordion-item:hover, .accordion-item.active {
+.accordion-item:hover,
+.accordion-item.active {
   border-color: #0f172a;
   box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
 }
@@ -388,7 +394,7 @@ body {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-  
+
   .hero-status-card {
     right: 0;
   }
@@ -409,7 +415,8 @@ body {
     padding: 0 1.5rem 1.5rem 1.5rem;
   }
 
-  .accordion-title, .accordion-number {
+  .accordion-title,
+  .accordion-number {
     font-size: 1.4rem;
   }
 }

@@ -5,7 +5,16 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'HireX Job Portal',
+      title: 'Indian News',
+      description: "A full-stack MERN news management application enabling admins to publish and manage news articles efficiently, with a user-friendly frontend for reading and exploring news content.",
+      image:'/projects/news.png',
+      tech: ['React', 'Node.js', 'Express', 'MongoDB'],
+      github: 'https://github.com/Shubham-5333/INDIAN_NEWS',
+      external: 'https://indiannnews.vercel.app/'
+    },
+    {
+      id: 2,
+      title: 'HireX',
       description: 'A Full-stack MERN job portal application enabling users to register, post jobs, search listings, and manage applications seamlessly.',
       image:'/projects/HireX.png',
       tech: ['React', 'Redux', 'Node.js', 'Express', 'MongoDB'],
@@ -13,7 +22,7 @@ const Projects = () => {
       external: 'https://hire-x-frontend-96mr.vercel.app/'
     },
     {
-      id: 2,
+      id: 3,
       title: 'I-Wear E-Commerce',
       description: 'Full stack eyewear e-commerce platform featuring product catalogs, cart management, and MongoDB backend logic.',
       image: '/projects/iwear.png',
@@ -22,7 +31,7 @@ const Projects = () => {
       external: 'https://iwear.onrender.com/'
     },
     {
-      id: 3,
+      id: 4,
       title: 'Attendance Tracking Platform',
       description: 'Interactive web platform for managing and tracking attendance with responsive React.js UI components.',
       image: '/projects/attendace.png',

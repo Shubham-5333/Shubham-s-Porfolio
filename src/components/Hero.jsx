@@ -1,26 +1,32 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDownRight, ArrowRight, Code, Globe, Sparkles } from 'lucide-react';
 import profilepic from '../assets/profilepic.jpg';
 
 const Hero = () => {
+  const [tilt, setTilt] = useState({ rotateX: 0, rotateY: 0 });
+
+  const handleMouseMove = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -12;
+    const rotateY = ((x - centerX) / centerX) * 12;
+    setTilt({ rotateX, rotateY });
+  };
+
+  const handleMouseLeave = () => {
+    setTilt({ rotateX: 0, rotateY: 0 });
+  };
+
   return (
     <section id="hero" className="section bg-starfield" style={{ minHeight: '100vh', position: 'relative', paddingTop: '120px', paddingBottom: '60px', overflow: 'hidden' }}>
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-        
-        {/* Top Status Badge */}
-        {/* <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          style={{ textAlign: 'center' }}
-        >
-          <div className="pulse-badge">
-            <span className="pulse-dot"></span>
-            <span>AVAILABLE FOR NEW OPPORTUNITIES</span>
-          </div>
-        </motion.div> */}
 
-        {/* Centerpiece Hero Layout: Split Display Typography & Portrait Image */}
+        {/* Centerpiece Hero Layout: Split Display Typography & Animated Portrait Image */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr minmax(280px, 360px) 1fr', gap: '1.5rem', alignItems: 'center', margin: '2rem 0' }} className="hero-split-container">
           
           {/* Left Title Block */}
@@ -39,39 +45,69 @@ const Hero = () => {
             </h1>
           </motion.div>
 
-          {/* Center Portrait Card with Floating Neon Circular Button */}
+          {/* Center Portrait Container with 3D Tilt, Floating Animation & Glowing Aura */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.2 }}
+            initial={{ opacity: 0, scale: 0.85, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
+            transition={{ 
+              opacity: { duration: 0.8 },
+              scale: { duration: 0.8 },
+              y: { duration: 5, repeat: Infinity, ease: 'easeInOut' }
+            }}
             className="hero-portrait-wrapper"
           >
-            <div className="hero-portrait-card">
+            {/* Animated Glowing Aura Backdrop */}
+            <div className="hero-portrait-aura"></div>
+
+            {/* Interactive 3D Tilt Image Card */}
+            <motion.div 
+              className="hero-portrait-card"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              animate={{
+                rotateX: tilt.rotateX,
+                rotateY: tilt.rotateY
+              }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              style={{ transformStyle: 'preserve-3d', perspective: 1000 }}
+            >
               <img
                 src={profilepic}
                 alt="Shubham Patil"
               />
-            </div>
+            </motion.div>
 
-            {/* Circular Overlapping Button */}
-            <a 
+            {/* Floating Circular Action Button */}
+            <motion.a 
               href="#capabilities" 
               className="hero-circle-btn"
               title="Explore Capabilities"
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+              whileHover={{ scale: 1.15, rotate: 18 }}
+              whileTap={{ scale: 0.95 }}
             >
               <ArrowDownRight size={32} />
-            </a>
+            </motion.a>
 
-            {/* Bottom Right Floating Status Snippet Card */}
+            {/* Floating Status Card with Gentle Motion */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
+              animate={{ opacity: 1, y: [0, 8, 0] }}
+              transition={{ 
+                opacity: { delay: 0.6, duration: 0.5 },
+                y: { duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.2 }
+              }}
               className="hero-status-card"
+              whileHover={{ scale: 1.05 }}
             >
-              <div style={{ padding: '8px', borderRadius: '10px', background: 'rgba(132, 204, 22, 0.15)', color: '#4d7c0f' }}>
+              <motion.div 
+                animate={{ rotate: [0, 15, -15, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                style={{ padding: '8px', borderRadius: '10px', background: 'rgba(132, 204, 22, 0.15)', color: '#4d7c0f' }}
+              >
                 <Sparkles size={18} />
-              </div>
+              </motion.div>
               <div>
                 <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px', display: 'block', fontWeight: 700 }}>
                   CORE STACK
